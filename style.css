@@ -8,10 +8,13 @@
     scroll-behavior: smooth;
 }
 
+:root {
+    --bgOrange: #e84949;
+}
+
 #wrapper {
     height: 100vh;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .container {
@@ -79,11 +82,12 @@ a {
 }
 
 .faded-text {
+    position: absolute;
     user-select: none;
     font-size: 5em;
     color: rgb(231, 231, 231);
-    bottom: 12%;
-    left: -2%;
+    bottom: -16%;
+    left: -5%;
     font-weight: bold;
     transition: all 3s;
     z-index: -0;
@@ -180,7 +184,7 @@ a {
 .user-image img {
     border-radius: 10px;
     z-index: -9;
-    height: 500px;
+    height: 340px;
 }
 
 @keyframes scaleImage {
@@ -297,7 +301,7 @@ a {
 .icons-plus {
     z-index: 9;
     top: 0em;
-    left: 10em;
+    left: 7em;
     animation-name: plusAnimate;
     animation-duration: 3.5s;
     animation-iteration-count: infinite;
@@ -315,4 +319,178 @@ a {
     100% {
         transform: translateX(0px) translateY(0px);
     }
+}
+
+
+.project-section {
+    background: rgb(231, 231, 231);
+    margin-top: 4rem;
+}
+
+.project-header {
+    color: var(--bgOrange);
+    font-size: 90px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.project-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+}
+
+.project-card {
+    width: 90%;
+    height: 550px;
+    /* overflow: hidden; */
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    box-shadow: 0px 0px 40px #1f1f1f;
+}
+
+.project-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #1f1f1f9a;
+    z-index: 0;
+    /* transform: scaleX(1); */
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(45deg, #343d68, #343d68be, #343d687c);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.4s;
+    z-index: 1;
+}
+
+.project-card:hover::before {
+    transform: scaleX(1);
+}
+
+.project-number {
+    position: absolute;
+    font-size: 200px;
+    color: white;
+    font-weight: 600;
+    z-index: 10;
+    display: none;
+    user-select: none;
+
+}
+
+.project-card:hover .project-number {
+    display: block;
+}
+
+.project-number-right {
+    right: -40px;
+    top: -45px;
+}
+
+.project-number-left {
+    left: -40px;
+    top: -45px;
+}
+
+.project-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 2em;
+    bottom: 20%;
+    z-index: 5;
+    gap: 1em;
+    transition: all 0.4s;
+}
+
+.project-content-left {
+    left: 10%;
+}
+
+.project-content-right {
+    right: 10%;
+}
+
+.project-skills-container {
+    width: 60%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.project-skill {
+    width: 40px;
+}
+
+.project-heading {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 3rem;
+}
+
+.project-subHeading {
+    width: 70%;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.btn-grp {
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+
+}
+
+
+svg {
+    cursor: pointer;
+    fill: white;
+    font-size: 35px;
+    transition: all 0.3s;
+}
+
+svg:hover {
+    fill: var(--bgOrange);
+}
+
+#project1 {
+    background-image: url(images/asset\ 29.png);
+    align-self: flex-start;
+}
+
+#project2 {
+    background-image: url(images/asset\ 30.png);
+    align-self: flex-end;
+}
+
+#project3 {
+    background-image: url(images/asset\ 31.png);
+    align-self: flex-start;
+}
+
+#project4 {
+    background-image: url(images/asset\ 32.png);
+    align-self: flex-end;
+}
+
+.project-card:hover .project-content {
+    transform: scale(1.1);
 }
